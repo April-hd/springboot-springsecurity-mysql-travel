@@ -1,0 +1,254 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ include file="public/head.jsp"%>
+<div class="tengchong" style="margin-top: -20px">
+
+    <div class="scenery-head">
+        <div class="container">
+            <div class="row">
+                <h3><strong>腾冲&nbsp;&nbsp;&nbsp;&nbsp;Tengchong</strong></h3>
+                <span>欢迎您访问腾冲</span>
+                <hr>
+                <div class="col-lg-8">
+                    <p>腾冲市隶属云南省保山市，位于云南省西南部，地处保山市西部，东与隆阳区相连，南与龙陵县、梁河县接壤，西与盈江县、缅甸联邦共和国毗连，北与泸水县相邻。市区距省会昆明606公里，距缅甸密支那200公里，距印度雷多602公里，是中国通向南亚、东南亚的重要门户和节点。</p>
+                    <p>截至2014年，腾冲市土地面积5845平方公里，国境线长148.075公里，辖11镇、7乡，2014年，总人口(常住人口)65.99万人;2014年，实现地区生产总值(GDP)133.4亿元。</p>
+                    <p>腾冲市是著名的侨乡、文献之邦和翡翠集散地，也是省级历史文化名城。腾冲在西汉时称滇越，大理国中期设腾冲府。由于地理位置重要，历代都派重兵驻守，明代还建造了石头城，称之为"极边第一城"。</p>
+                    <p>腾冲市主要旅游景区有火山群国家公园、叠水河瀑布、北海湿地保护区、国殇墓园、艾思奇故居等。</p>
+                </div>
+                <div class="col-lg-4">
+                    <video controls>
+                        <source src="../../video/腾冲.mp4" type="video/mp4">
+                        <source src="../../video/腾冲.ogg" type="video/ogg">
+                        <source src="../../video/腾冲.webm" type="video/webm">
+                        <object data="../../video/腾冲.mp4" width="320" height="240">
+                            <embed src="../../video/腾冲.swf" width="320" height="240">
+                        </object>
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container scenery-info">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+
+                <ul class="nav nav-pills nav-justified" role="tablist">
+                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">主页</a></li>
+                    <li role="presentation"><a href="#scenery" aria-controls="scenery" role="tab" data-toggle="tab">景点</a></li>
+                    <li role="presentation"><a href="#accommodation" aria-controls="accommodation" role="tab" data-toggle="tab">住宿</a></li>
+                    <li role="presentation"><a href="#cate" aria-controls="cate" role="tab" data-toggle="tab">美食店</a></li>
+                </ul>
+
+            </div>
+            <div class="panel-body">
+
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                        <!-- 腾冲主页 -->
+                        <div class="main-info">
+                            <div class="strategy">
+                                <h2>旅游攻略</h2>
+                                <div class="strategy-head">
+                                    <h3>景点概况</h3>
+                                    <hr>
+                                </div>
+                                <div class="strategy-item">
+                                    <h4>腾冲速览</h4>
+                                    <div>
+                                        <p>腾冲县位于云南省保山市西南部，西部与缅甸毗邻，从腾冲到克钦邦首府密支那217公里，是云南到缅甸、印度、泰国的必经地之一。腾冲境内辖11个镇（腾越镇、芒棒镇、和顺镇、固东镇、滇滩镇、猴桥镇、界头镇、曲石镇、明光镇、中和镇、荷花镇），8个乡（马站乡、北海乡、清水乡、五合乡、新华乡、蒲川乡、团田乡），境内有汉、傣、傈僳、回、白、佤、阿昌7种世居民族。</p>
+                                    </div>
+                                </div>
+                                <div class="strategy-item">
+                                    <h4>最佳旅行时间</h4>
+                                    <div>
+                                        <p>腾冲一年四季都适合旅游，如果在4月中、下旬来，这时的腾冲草长莺飞，一派生机勃勃的景象。另外，每年的11月中旬-12月初，是到银杏村看银杏的最佳时节。</p>
+                                    </div>
+                                </div>
+                                <div class="strategy-item">
+                                    <h4>穿衣指南</h4>
+                                    <div>
+                                        <p>腾冲县属热带季风气候，年平均气温14.9℃，最低气温10℃，最高气温28℃，冬无严寒，夏无酷暑，全年适于旅游观光。腾冲森林密布，到处青山绿水，景色秀丽迷人。腾冲太阳辐射度较大，不论春夏秋冬，只要一出太阳就很暖和，一下雨就很冷。毛衣一定要带，在当地一年四季都用得上。</p>
+                                    </div>
+                                </div>
+                                <div class="strategy-item">
+                                    <h4>消费水平</h4>
+                                    <div>
+                                        <p>腾冲的消费水平不高，交通、吃饭都不贵，一般中餐20-30元，普通住宿的话一般在200元左右。</p>
+                                    </div>
+                                </div>
+                                <div class="strategy-head">
+                                    <h3>景点游玩</h3>
+                                    <hr>
+                                </div>
+                                <div class="strategy-item">
+                                    <h4>必游景点</h4>
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-3">
+                                            <div class="thumbnail">
+                                                <img src="../../images/homepage/wKgBs1ZoG4eAInygADAv41TVlng32.jpeg" style="height: 163px;" alt="...">
+                                            </div>
+                                            <div class="caption">
+                                                <h5 style="text-align: center;">和顺古镇</h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-md-3">
+                                            <div class="thumbnail">
+                                                <img src="../../images/homepage/wKgB6lPD4fqAUc7uAASLAmwj8Nk12.jpeg" style="height: 163px;" alt="...">
+                                            </div>
+                                            <div class="caption">
+                                                <h5 style="text-align: center;">腾冲热海</h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-md-3">
+                                            <div class="thumbnail">
+                                                <img src="../../images/homepage/wKgED1wtzXyARHOEAA8cqO2IYLA07.jpeg" style="height: 163px;" alt="...">
+                                            </div>
+                                            <div class="caption">
+                                                <h5 style="text-align: center;">腾冲火山地热国家地质公园</h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-md-3">
+                                            <div class="thumbnail">
+                                                <img src="../../images/homepage/wKgBEFq1yS2AfxjeABk1Tm5pLL080.jpeg" style="height: 163px;" alt="...">
+                                            </div>
+                                            <div class="caption">
+                                                <h5 style="text-align: center;">固东银杏村</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="history">
+                                <h2>历史</h2>
+                                <div class="strategy-head">
+                                    <h3>文化</h3>
+                                    <hr>
+                                </div>
+                                <div class="history-item">
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <strong>腾冲农民画</strong>
+                                            <p>腾冲农民画是以傣族、傈僳族、佤族等少数民族为主体创作者的少数民族农民画，民族特征鲜明。腾冲农民画善于从民间艺术和现实生活中撷取题材，充满了浓厚的生活气息、鲜明的时代特征和地域特色。</p>
+                                            <strong>腾冲斗笠</strong>
+                                            <p>腾冲斗笠主产于腾冲小西、打苴2乡镇，用荆竹、大竹等竹子编成，以荆竹斗笠为上品。笠分3层，笠面用细篾精心编织，底层为花胎，中衬塑料纸，遮阳防雨，也可作室内挂饰，集实用与装饰于一身。</p>
+                                            <strong>腾冲饵丝</strong>
+                                            <p>腾冲饵丝以籼稻、浆米为原料，经淘洗、浸泡、一次蒸煮、分饭(漂浆)、二次蒸煮、挤压搅拌、压片、切丝(切片)等工艺精制而成。2012年，获得中国地理标志证明商标。</p>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <img class="img-thumbnail" src="../../images/homepage/wKgBpVWPeNmAQJ5CAAVngNvJOvQ84.jpeg">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="strategy-head">
+                                    <h3>著名人物</h3>
+                                    <hr>
+                                </div>
+                                <div class="history-item">
+                                    <p>李珍国(1827-1887)，腾越镇下绮罗人。曾先后任威远营参将、腾越镇标中衡、左营都司、龙陵营参将、腾越守备总兵官副将。1874年，抵抗英军入侵。1886年病故，葬于来凤山麓。</p>
+                                    <p>张文光(1882-1914)，字少三。1906年加入同盟会，后组建自治同志会。1911年宣布建立滇西军督府。1914年被唐继尧派人刺杀于硫磺塘温泉。1923年，追授陆军中将，授二等嘉禾章，事迹宣付国史馆立传。</p>
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <p>刘楚湘(1886-1952)，字梦泽，号适斋。1916年被选为国会议员，担任宪法起草委员，得授二等大绶嘉禾勋章。1927年任腾冲等五属联合中学校长兼县立图书馆馆长。腾冲从日军手中收复后，任腾冲县长。新中国成立后，任云南省文史馆员。</p>
+                                            <p>张宝廷(1859-1928)，名德珩，以字行。年青时赴缅从商，先后从事咖啡引种、解木机器厂等实业，清宣统后，改营玉石开采而致富。后被英国聘请代收玉石关税和物资运输，被英国女皇授予金质奖章。张宝廷豪爽任侠，被旅缅华侨尊为领袖。</p>
+                                            <p>张木欣(1881-1964)，名荣庭，号木石居士。1914年加入中华革命党。民国20年，将在北平等地购得的数万件文物古籍运回腾冲，开办木欣图书馆。1942年腾冲沦陷前，定居北京，任国际红十字会中华总会会长。</p>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <img class="img-thumbnail" src="../../images/homepage/9213b07eca8065386bde6ac791dda144ad34822a.jpg">
+                                        </div>
+                                    </div>
+                                    <p>张问德(1880-1957)腾冲抗战前后，两度出任昌宁、顺宁县长，为官清廉，体恤百姓。在担任腾冲抗日县长期间，为腾冲人民抗击日军的组织者和领导者。晚年被举为德宏州政协委员并被聘为省志编纂，1957年病逝于腾冲，德宏州政协题旌曰"忠恤千秋"。</p>
+                                    <p>李根源(1879-1965)中国民主革命的先驱者，云南辛亥起义的名将。先后担任过云南陆军讲武堂总办、驻粤滇军总司令、云贵监察使、代理国务总理、西南军政委员会委员、全国政协委员、全国政协文史资料研究委员会第一副主任等职。</p>
+                                    <p>寸性奇(1895-1941)抗日名将。中华民国国民革命军中将，于中日战争期间阵亡的中国军方高级将领之一。</p>
+                                </div>
+                            </div>
+                            <div class="transport">
+                                <h2>交通</h2>
+                                <div class="transport-item">
+                                    <ul>
+                                        <li>航空</li>
+                                        <p>截至2012年，腾冲市境内驼峰机场已开通至西双版纳、丽江、成都、重庆、北京等城市的航班。</p>
+                                        <p>腾冲机场地处高原山区，位于高黎贡山西侧、距腾冲市城南10公里处的清水乡驼峰村。机场于2007年2月1动工建设，工程于2008年12月完工，机场于2009年1月23日正式通航运行。腾冲机场性质为国内支线机场，本期以2015年为设计目标年，按满足年旅客吞吐量48万人次需要设计，年货运吞吐量2100吨、年客机起降架次6244架次规划设计。2013年5月1日，国产第一套飞机跑道拦阻系统在腾冲机场开工建设。</p>
+                                    </ul>
+                                    <div class="row">
+                                        <div class="col-lg-8">
+                                            <ul>
+                                                <li>折叠公路</li>
+                                                <p>至2014年，腾冲市通车里程达3791公里，其中，高速公路43公里，一级公路43公里，二级公路369公里，三级公路19公里，四级公路1846公里，等外公路1471公里。公路密度64.86公里/百平方公里。腾冲18个乡镇中全部通沥青路；213个建制村中通沥青或水泥路的有89个，行政村通公路率100%，路面硬化率42%。</p>
+                                                <li>保腾高速公路</li>
+                                                <p>保腾高速公路起于保龙高速公路小田坝，止于腾冲中和镇∶毛家营，线路全长63.871公里，批准建设工期为4年(不含龙江特大桥)，其中腾冲段长43.5公里。按双向四车道高速公路标准建设，设计时速80公里/小时，保腾高速公路(除龙江特大桥)于2013年2月份通车，龙江特大桥工程正在抓紧实施。</p>
+                                            </ul>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <img class="img-thumbnail" src="../../images/homepage/wKgB21BAu7rTYCoBAA_biUrJbD018.jpeg">
+                                        </div>
+                                    </div>
+                                    <ul>
+                                        <li>二级公路</li>
+                                        <p>腾冲至泸水二级公路∶腾冲县城至龙塘河口段∶路线起于腾冲县城北二环路三号桥，经北海乡、曲石镇，止于界头镇龙塘河口，全长95公里。于2011年6月建成通车。是腾冲县城南接省道S317线进入保山市、芒市，北连泸水县，通往滇北的重要通道，惠及沿线约24.8万人口。</p>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="scenery">
+                        <!-- 腾冲景点 -->
+                        <div class="row">
+                            <c:forEach items="${sceneries}" var="scenery">
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail">
+                                        <img src="${scenery.url}" alt="...">
+                                        <div class="caption">
+                                            <h3>${scenery.name}</h3>
+                                            <p>${scenery.location}</p>
+                                            <p>${scenery.openTime}</p>
+                                            <span>${scenery.level}&nbsp;&nbsp;|&nbsp;&nbsp;${scenery.price}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="accommodation">
+                        <%--腾冲住宿--%>
+                        <div class="row">
+                            <c:forEach items="${hotels}" var="hotel">
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail">
+                                        <img src="${hotel.url}" alt="...">
+                                        <div class="caption">
+                                            <h4>${hotel.name}</h4>
+                                            <h5>${hotel.english}</h5>
+                                            <p class="ellipsis">${hotel.hotelDesc}</p>
+                                            <p>${hotel.location}</p>
+                                            <span>${hotel.price}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="cate">
+                        <!-- 腾冲美食 -->
+                        <div class="row">
+                            <c:forEach items="${cates}" var="cate">
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail">
+                                        <img src="${cate.url}" alt="...">
+                                        <div class="caption">
+                                            <h4><strong>${cate.name}</strong></h4>
+                                            <p class="ellipsis" style="-webkit-line-clamp: 1;">${cate.location}</p>
+                                            <p class="ellipsis" style="-webkit-line-clamp: 2;">${cate.catesDesc}</p>
+                                            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

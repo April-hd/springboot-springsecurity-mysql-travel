@@ -1,0 +1,451 @@
+body{
+    padding: 0;
+    margin: 0;
+    /*background-color: #F5F5F5;*/
+}
+/*.jumbotron{*/
+    /*margin: 0;*/
+    /*height: 200px;*/
+    /*background: url("../../images/jumbotron.jpg");*/
+/*}*/
+/*.header-info{*/
+    /*text-align: center;*/
+/*}*/
+/*.header-info .col-lg-1{*/
+    /*padding: 10px 12px;*/
+/*}*/
+/*.header-info .nav .dropdown:hover{*/
+    /*cursor: pointer;*/
+/*}*/
+/*.header-info .nav > li:hover .dropdown-menu {*/
+    /*display: block;*/
+/*}*/
+/*.navbar-inverse{*/
+    /*background-color: rgba(34,34,34,0.8);*/
+/*}*/
+.navbar .nav > li:hover .dropdown-menu{
+    display: block;
+}
+.navbar-inverse .navbar-nav>.active>a{
+    background-color: #FF9D00;
+}
+.faq-tabbable>li>a:hover{
+    padding-bottom: 12px;
+    border-bottom: 3px solid #FF9D00;
+}
+.dropdown-menu{
+    padding: 0;
+}
+.user-more li{
+    padding: 5px 0;
+    background-color: #222222;
+}
+.user-more>li>a{
+    color: white;
+}
+/*.glyphicon-search{*/
+    /*color: red;*/
+    /*font-size: 20px;*/
+/*}*/
+.carousel-bg{
+    margin-top: -20px;
+}
+.carousel-caption{
+    top: 20px;
+    text-align: left;
+}
+.destination img{
+    width: 350px;
+    height: 250px;
+}
+.thumbnail img{
+    width: 350px;
+    height: 250px;
+}
+.destination .thumbnail:hover{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02),0 16px 32px -4px rgba(0,0,0,0.17);
+    transform: translateY(-1px);
+}
+.ellipsis{
+    overflow:hidden;
+    text-overflow:ellipsis;
+    display: -webkit-box; /*将对象作为弹性伸缩盒子模型显示*/
+    -webkit-box-orient: vertical; /* 从上到下垂直排列子元素（设置伸缩盒子的子元素排列方式）*/
+    -webkit-line-clamp: 3; /*设置显示几行  需要组合上面两个属性 */
+}
+.foods .items{
+    position: relative;
+}
+.foods .item{
+    width: 210px;
+    position: absolute;
+    background-color: rgba(245,245,245,0.2);
+    border-radius: 5%;
+}
+.foods .item p{
+    font-size: 12px;
+}
+.foods .item:hover{
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02),0 16px 32px -4px rgba(0,0,0,0.17);
+    transform: translateY(-1px);
+}
+.foods .avater{
+    padding: 0 20px;
+}
+.footer{
+    background-color: #3C3C3C;
+    color: #BCBCBC;
+    text-align: center;
+    padding: 20px;
+}
+.footer-headline{
+    font-size: 24px;
+    font-weight: bolder;
+    color: #FFCB13;
+}
+.footer-info{
+    color: #FFCB13;
+}
+.footer-info img{
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+}
+
+/*景点主页*/
+.scenery-head{
+    background: url('../../images/背景.jpg');
+    height: 420px;
+    width: 100%;
+    color: white;
+}
+.scenery-head p{
+    text-indent: 2em;
+}
+.scenery-head video{
+    width: 320px;
+    height: 240px;
+    margin-top: -20px;
+}
+.scenery-info{
+    margin-top: -60px;
+}
+.scenery-info .panel-heading{
+    background-color: white;
+}
+.scenery-info ul{
+    margin: 0;
+}
+.nav-pills{
+    margin: 0 15px;
+}
+.main-info{
+    padding: 20px;
+}
+.main-info h2{
+    border-left: 10px solid #37AB2F;
+    padding-left: 20px;
+}
+.main-info h4{
+    line-height: 30px;
+    border-left: 5px solid #37AB2F;
+    padding-left: 20px;
+    background-color: #F1F1F1;
+}
+.main-info{
+    box-shadow: 0 0 8px rgba(0,0,0,.1);
+}
+.main-info p{
+    text-indent: 2em;
+}
+.strategy-head{
+    margin: 0 20px;
+}
+.strategy-item,.history-item,.transport-item,.scenery-item{
+    margin: 0 20px;
+}
+/*用户主页*/
+/*用户查询订单*/
+.user-orders .row,.user-bookhotels .row{
+    padding: 15px;
+}
+.user-aside{
+    margin-left: 12%;
+    float: left;
+    width: 20%;
+    height: auto;
+}
+.user-aside a{
+    text-decoration: none;
+}
+.user-aside .active{
+    background-color: rgb(238,238,238);
+}
+.user-right{
+    margin-left: 5%;
+    float: left;
+    width: 50%;
+    height: auto;
+}
+.user-right .table>tbody>tr>td{
+    border-top: 1px solid #F0F0F0;
+    padding: 20px;
+    vertical-align: middle;
+}
+.user-right .mytextarea{
+    width: 100%;
+    height: 100px;
+    padding: 8px 10px;
+    font-size: 15px;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    background-color: hsla(0,0%,71%,.1);
+    display: block;
+    resize: none;
+    outline-style: none;
+}
+.user-right .website{
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 15px;
+    border: 1px solid #c8c8c8;
+    border-radius: 4px;
+    background-color: hsla(0,0%,71%,.1);
+}
+.user-right p{
+    float: right;
+    margin: 0;
+    padding: 8px 0 0;
+    font-size: 12px;
+    color: #969696;
+    clear: both;
+}
+.user-right .result{
+    color: #42c02e;
+    text-align: center;
+    padding: 5px;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+}
+.user-right .setting-save{
+    border-radius: 40px;
+    color: #fff;
+    background-color: #42c02e;
+    border-color: #42c02e;
+    width: 100px;
+    margin: 30px 0 60px;
+}
+
+/*用户个人背景图*/
+.user-orders .panel-head,.user-bookhotels .panel-head,.user-main .panel-head{
+    text-align: center;
+    line-height: 200px;
+    vertical-align: middle;
+    font-size: 36px;
+    color: wheat;
+    background-image: url(../../images/user_main.jpeg);
+}
+/*旅游网站小背景图*/
+.freewalk .panel-head,.destination-all .panel-head,.cate-all .panel-head,.food-all .panel-head,.route-all .panel-head,.scenery-all .panel-head{
+    text-align: center;
+    line-height: 200px;
+    vertical-align: middle;
+    font-size: 36px;
+    color: wheat;
+}
+.freewalk .panel-head{
+    background-image: url(../../images/travel_freewalk.png);
+}
+.destination-all .panel-head{
+    background-image: url(../../images/travel_destination.png);
+}
+.cate-all .panel-head{
+    background-image: url(../../images/travel_cate.png);
+}
+.food-all .panel-head{
+    background-image: url(../../images/travel_food.png);
+}
+.route-all .panel-head{
+    background-image: url(../../images/travel_route.png);
+}
+.scenery-all .panel-head{
+    background-image: url(../../images/travel_scenery.png);
+}
+/*旅游路线*/
+.route-img-span{
+    margin-left: 10px;
+}
+.route-body,.route-footer{
+    margin-top: 20px;
+    box-shadow: 0 0 8px rgba(0,0,0,.1);
+    border-radius: 5px;
+    background-color: #ffffff;
+    padding: 20px 40px;
+}
+.route-body .thumbnail img{
+    height: 160px;
+}
+.child-tip{
+    font-size: 10px;
+    color: #999;
+}
+.child-tip:hover{
+    cursor: pointer;
+}
+.tooltip-inner{
+    background: #fafafa !important; /*修改背景色*/
+    text-align: left !important;/*字体左对齐*/
+    color:#363636 !important;/*字体颜色*/
+    border:1px solid #dedede;/*添加boder*/
+    width: 200px;/*提示框的宽度增大*/
+    max-width: 400px !important;/*修改宽度*/
+    margin-left: 30px;
+}
+.tooltip-arrow{
+    border-bottom-color: #ffffff !important;/*修改三角形的颜色*/
+    opacity: 0;/*三角形透明*/
+}
+.tooltip{
+    opacity: 1 !important;/*让整个tooltip不透明*/
+}
+.day-list .day-num{
+    float: left;
+    margin: 0 0 0 -62px;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    line-height: 44px;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #747982;
+}
+.day-list .day-pio{
+    margin-bottom: 25px;
+    font-size: 16px;
+    color: #333;
+    line-height: 24px;
+    text-indent: 2em;
+}
+.day-list .place-link{
+    display: inline-block;
+}
+.day-list .place-link a{
+    background-color: transparent;
+    text-decoration: none;
+    color: #ff9d00;
+    cursor: pointer;
+}
+.day-list .day-transport{
+    display: inline-block;
+    margin: 5px 20px 0 0;
+    padding: 0 16px 0 8px;
+    border-bottom: 2px solid #efefee;
+    line-height: 24px;
+    font-size: 12px;
+    position: relative;
+    vertical-align: top;
+}
+.day-list .day-transport .i-arrow{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 20px;
+    height: 14px;
+    background-image: url(../../images/箭头.jpg);
+    overflow: hidden;
+}
+/*讨论区*/
+.comment-form{
+    margin-bottom: 20px;
+}
+.comment-form textarea{
+    padding: 9px 10px;
+    border: 1px solid #e4e4e4;
+    margin: 0;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 1px;
+    resize: vertical;
+}
+.comment-form button{
+    width: 200px;
+    height: 50px;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #ff9d00;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 3px;
+}
+.comment-list li{
+    padding: 20px 0;
+    border-bottom: 1px solid #ededed;
+}
+.c-bar{
+    margin: 5px 0;
+}
+.c-user,.c-time{
+    vertical-align: top;
+}
+.c-txt{
+    margin-top: -25px;
+    margin-left: 48px;
+    font-size: 14px;
+    color: #333;
+}
+
+/*酒店订单*/
+.hotel-main{
+    margin-top: 60px;
+}
+.h-title{
+    font-size: 24px;
+    line-height: 30px;
+    color: #333333;
+}
+.data-warp{
+    margin: 40px 0 70px 0;
+}
+.data-warp input{
+    padding: 10px;
+    height: 45px;
+    font-size: 16px;
+}
+.data-warp .search{
+    padding: 2px 0;
+    font-size: 24px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+}
+.h-notice{
+    text-align: center;
+    margin-bottom: 40px;
+}
+.h-notice .notice01,.notice02{
+    margin-right: 150px;
+}
+.h-notice img{
+    float: left;
+    margin-right: 15px;
+}
+.h-notice .notice-info{
+    float: left;
+}
+.h-item img{
+    float: left;
+    width: 280px;
+    height: 200px;
+}
+.h-info{
+    float: left;
+}
+
+/*自由行订单*/
+.freewalk-addOrder .step3{
+    text-align: center;
+    margin-top: 60px;
+}
