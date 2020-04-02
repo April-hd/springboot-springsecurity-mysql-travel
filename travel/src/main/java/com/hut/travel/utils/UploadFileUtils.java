@@ -28,7 +28,7 @@ public class UploadFileUtils {
         //4.获取当前项目的真实地址，拼接新的文件名，并保存在服务器的静态资源目录下
         String desFilename = request.getServletContext().getRealPath("") + "WEB-INF\\classes\\static\\images\\" + param + File.separator + newFilename;
         //5.同时备份在本地项目上，以便重构项目时，资源依旧存在
-        String localFilename = "D:\\soft\\project\\travel\\src\\main\\resources\\static\\images\\" + param + File.separator + newFilename;
+        String localFilename = "D:\\java\\project\\travel\\src\\main\\resources\\static\\images\\" + param + File.separator + newFilename;
         //6.将desFileName转化为抽象路径文件对象
         File desFile = new File(desFilename);
         //7.将上传的文件以新的文件名复制到服务器上
