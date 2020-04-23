@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="/js/managehead.js"></script>
+    <link type="text/css" rel="stylesheet" href="/css/manage.css">
+</head>
+<body>
+<!--后台管理系统顶部-->
+<div th:replace="~{common/managehead::managetop}"></div>
+
+<div class="container-fluid">
+    <!--左边导航栏-->
+    <div th:replace="~{common/managehead::manageleft}"></div>
+
+    <!--右边详情-->
+    <div class="right">
+
+        <div class="panel panel-primary">
+
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <strong>您现在所在的位置>></strong>
+                    <span>酒店订单管理</span>
+                </h3>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-lg-1">
+                        <a href="/manage/bookhotel/findAllBookHotel" class="btn btn-warning">查看所有</a>
+                    </div>
+                    <div class="col-lg-11">
+                        <!--模糊查询-->
+                        <form action="/manage/bookhotel/fuzzyQuery" method="get" class="form-inline">
+                            <div class="form-group">
+                                <label>订单编号</label>
+                                <input type="text" class="form-control" name="bookHotelNum" placeholder="BookHotelNum" />
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span>查询</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!--模糊查询结果-->
+                <div th:if="${bookHotels!=null}">
+                    <hr>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">查询结果</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered table-hover">
+                                <tr class="info">
+                                    <th>id</th>
+                                    <th>订单编号</th>
+                                    <th>酒店名</th>
+                                    <th>下单时间</th>
+                                    <th>入住时间</th>
+                                    <th>离店时间</th>
+                                    <th>人数</th>
+                                    <th>总价</th>
+                                    <th>下单账号</th>
+                                    <th>订单状态</th>
+                                    <th>支付方式</th>
+                                </tr>
+                                <div th:each="bookHotel:${bookHotels}">
+                                    <tr>
+                                        <td th:text="${bookHotel.id}"></td>
+                                        <td th:text="${bookHotel.num}"></td>
+                                        <td th:text="${bookHotel.hotel.name}"></td>
+                                        <td th:text="${bookHotel.createTime}"></td>
+                                        <td th:text="${bookHotel.liveTime}"></td>
+                                        <td th:text="${bookHotel.leaveTime}"></td>
+                                        <td th:text="${bookHotel.peopleCount}"></td>
+                                        <td th:text="${bookHotel.price}"></td>
+                                        <td th:text="${bookHotel.userInfo.username}"></td>
+                                        <div th:if="${bookHotel.status==0}">
+                                            <td>未支付</td>
+                                            <td>待定</td>
+                                        </div>
+                                        <div th:if="${bookHotel.status==1}">
+                                            <td>已支付</td>
+                                            <div th:if="${bookHotel.payType==1}">
+                                                <td>支付宝支付</td>
+                                            </div>
+                                            <div th:if="${bookHotel.payType==2}">
+                                                <td>微信支付</td>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                </div>
+                            </table>
+                            <div th:if="${bookHotels.size()==0}">
+                                <p style="text-align: center;">未查询到相关数据</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div th:if="${pageInfo!=null}">
+                    <hr>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">所有酒店订单</h3>
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered table-hover">
+                                <tr class="info">
+                                    <th>id</th>
+                                    <th>订单编号</th>
+                                    <th>酒店名</th>
+                                    <th>下单时间</th>
+                                    <th>入住时间</th>
+                                    <th>离店时间</th>
+                                    <th>人数</th>
+                                    <th>总价</th>
+                                    <th>下单账号</th>
+                                    <th>订单状态</th>
+                                    <th>支付方式</th>
+                                </tr>
+                                <div th:each="pageInfo:${pageInfo.list}">
+                                    <tr>
+                                        <td th:text="${pageInfo.id}"></td>
+                                        <td th:text="${pageInfo.num}"></td>
+                                        <td th:text="${pageInfo.hotel.name}"></td>
+                                        <td th:text="${pageInfo.createTime}"></td>
+                                        <td th:text="${pageInfo.liveTime}"></td>
+                                        <td th:text="${pageInfo.leaveTime}"></td>
+                                        <td th:text="${pageInfo.peopleCount}"></td>
+                                        <td th:text="${pageInfo.price}"></td>
+                                        <td th:text="${pageInfo.userInfo.username}"></td>
+                                        <div th:if="${pageInfo.status==0}">
+                                            <td>未支付</td>
+                                            <td>待定</td>
+                                        </div>
+                                        <div th:if="${pageInfo.status==1}">
+                                            <td>已支付</td>
+                                            <div th:if="${pageInfo.payType==1}">
+                                                <td>支付宝支付</td>
+                                            </div>
+                                            <div th:if="${pageInfo.payType==2}">
+                                                <td>微信支付</td>
+                                            </div>
+                                        </div>
+                                    </tr>
+                                </div>
+                            </table>
+                            <div class="row">
+                                <div class="col-lg-6 form-inline">
+                                    <div class="form-group lead-left">
+                                        总共<span th:text="${pageInfo.pages}"></span>页，共条<span th:text="${pageInfo.total}"></span>数据。每页
+                                        <select class="form-control" id="changePageSize" onchange="changePageSize()">
+                                            <option style="display: none;" th:text="${pageInfo.pageSize}"></option>
+                                            <option>5</option>
+                                            <option>6</option>
+                                            <option>7</option>
+                                            <option>8</option>
+                                            <option>9</option>
+                                        </select>
+                                        条
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <nav aria-label="Page navigation" class="lead-right">
+                                        <ul class="pagination">
+                                            <li>
+                                                <a th:href="'/manage/bookhotel/findAllBookHotel?page=1&size='+${pageInfo.pageSize}">
+                                                    <span aria-hidden="true">首页</span>
+                                                </a>
+                                            </li>
+                                            <li th:if="${pageInfo.pageNum>1}">
+                                                <a th:href="'/manage/bookhotel/findAllBookHotel?page='+${pageInfo.pageNum - 1}+'&size='+${pageInfo.pageSize}" aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li th:each="pageNumber:${#numbers.sequence(1,pageInfo.pages)}"><a th:href="'/manage/bookhotel/findAllBookHotel?page='+${pageNumber}+'&size='+${pageInfo.pageSize}" th:text="${pageNumber}"></a></li>
+                                            <li th:if="${pageInfo.pageNum < pageInfo.pages}">
+                                                <a th:href="'/manage/bookhotel/findAllBookHotel?page='+${pageInfo.pageNum+1}+'&size='+${pageInfo.pageSize}" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a th:href="'/manage/bookhotel/findAllBookHotel?page='+${pageInfo.pages}+'&size='+${pageInfo.pageSize}">
+                                                    <span aria-hidden="true">尾页</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+</body>
+</html>
+<script src="/js/hotelbook_list.js"></script>

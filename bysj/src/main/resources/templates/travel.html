@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>旅游网</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/moment.js/2.22.0/moment-with-locales.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/js/head.js"></script>
+    <script src="/js/waterFall.js"></script>
+    <link type="text/css" rel="stylesheet" href="/css/travel.css">
+</head>
+<body>
+<!--导入公共头部-->
+<div th:replace="~{common/head::traveltop}"></div>
+<div th:replace="~{common/head::userInfo}"></div>
+
+<!-- 轮播图片 -->
+<div class="carousel-bg">
+    <div class="container-fluid" style="padding: 0;">
+        <div class="carousel slide" id="slidershow" data-ride="carousel">
+            <!--设置轮播图片的顺序-->
+            <ol class="carousel-indicators">
+                <li class="active" data-target="#slidershow" data-slide-to="0"></li>
+                <li data-target="#slidershow" data-slider-to="1"></li>
+                <li data-target="#slidershow" data-slider-to="2"></li>
+                <li data-target="#slidershow" data-slider-to="3"></li>
+                <li data-target="#slidershow" data-slider-to="4"></li>
+                <li data-target="#slidershow" data-slider-to="5"></li>
+                <li data-target="#slidershow" data-slider-to="6"></li>
+                <li data-target="#slidershow" data-slider-to="7"></li>
+                <li data-target="#slidershow" data-slider-to="8"></li>
+                <li data-target="#slidershow" data-slider-to="9"></li>
+            </ol>
+            <!--设置轮播图片-->
+            <div class="carousel-inner">
+                <div class="item" th:each="carousel:${carousels}">
+                    <img th:src="@{${carousel.url}}"/>
+                    <div class="carousel-caption">
+                        <h4><span th:text="${#dates.format(carousel.createTime,'d/MM.yyyy')}"></span>&nbsp;&nbsp;<span th:text="${carousel.chinese}"></span>&nbsp;&nbsp;<span th:text="${carousel.english}"></span></h4>
+                        <h3 th:text="${carousel.carDesc}"></h3>
+                    </div>
+                </div>
+            </div>
+            <!--设置轮播图片控制器-->
+            <a href="#slidershow" data-slide="prev" class="left carousel-control" role="button">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a href="#slidershow" data-slide="next" class="right carousel-control" role="button">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--热门目的地-->
+<div class="container destination" style="margin-top: 20px;">
+    <div class="panel panel-default">
+        <div class="panel-body destination">
+            <h3 class="page-header" style="text-align: center;margin-top: 0;">热门目的地<span style="font-size: 14px;"><a target="_blank" href="/travel/destination/findAll">查看更多</a></span></h3>
+            <div class="row" >
+                <div th:each="destination:${destinations}">
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
+                        <div class="thumbnail">
+                            <img th:src="@{${destination.url}}" alt="...">
+                            <div class="caption">
+                                <h3 th:text="${destination.name}"></h3>
+                                <p class="ellipsis" th:text="${destination.destiDesc}"></p>
+                                <p th:if="${destination.status==1}"><a target="_blank" th:href="${destination.href}+'?id='+${destination.id}" class="btn btn-warning" role="button">点击查看景点</a></p>
+                                <p th:if="${destination.status==0}"><button class="btn btn-warning disabled" role="button" disabled="disabled">暂未开通</button></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--热门旅游路线-->
+<div class="container route">
+    <div class="panel panel-default">
+        <div class="panel-body route">
+            <!-- 热门旅游路线 -->
+            <h3 class="page-header" style="text-align: center;margin-top: 0;">热门旅游路线<span style="font-size: 14px;"><a target="_blank" href="/travel/route/findAll?page=1&size=5">查看更多</a></span></h3>
+            <div th:each="route:${routes}">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-3"><img src="/images/路线.jpg"><a href="" th:text="${route.name}"></a></div>
+                            <div class="col-lg-2"><img src="/images/日历.jpg">游玩时间：<span th:text="${route.time}"></span>天</div>
+                            <div class="col-lg-2"><img src="/images/太阳.jpg">最佳季节：<span th:text="${route.season}"></span>月</div>
+                            <div class="col-lg-2"><img src="/images/价格.jpg">价格：<span th:text="${route.price}"></span>元</div>
+                            <div class="col-lg-2" th:if="${route.status==1}"><a target="_blank" th:href="${route.href}+'?routeId='+${route.id}" class="btn btn-warning">查看路线详情</a></div>
+                            <div class="col-lg-2" th:if="${route.status==0}"><button class="btn btn-warning" disabled="disabled">查看路线详情</button></div>
+                            <div class="col-lg-1"><img th:src="@{${route.url}}"></div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div th:each="routePhoto:${route.routePhotoList}">
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="#" class="thumbnail">
+                                        <img style="height: 163px;" th:src="@{${routePhoto.url}}" alt="...">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--美食-->
+<div class="container foods">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <!-- 美食 -->
+            <h3 class="page-header" style="text-align: center;margin-top: 0;" >美食<span style="font-size: 14px;"><a target="_blank" href="/travel/food/findAll">查看更多</a></span></h3>
+            <div class="items">
+                <div class="item" th:each="food:${foods}">
+                    <img th:src="@{${food.url}}" alt="" class="img-thumbnail"/>
+                    <div class="avater">
+                        <h5 th:text="${food.name}"></h5>
+                        <p th:text="${food.price}"></p>
+                        <p class="ellipsis" th:text="${food.foodDesc}"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--导入公共尾部-->
+<div th:replace="~{common/foot::travelfoot}"></div>
+</body>
+</html>

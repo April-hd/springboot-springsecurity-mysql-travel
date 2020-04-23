@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户路线订单</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="/js/head.js"></script>
+    <link type="text/css" rel="stylesheet" href="/css/travel.css">
+</head>
+<body>
+<!--导入公共头部-->
+<div th:replace="~{common/head::traveltop}"></div>
+<div th:replace="~{common/head::userInfo}"></div>
+
+<div class="container user-orders">
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading panel-head">
+                路线订单
+            </div>
+            <div class="panel-body">
+                <div th:each="order:${pageInfo.list}">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <h4>订单信息</h4>
+                                <hr>
+                                <div class="col-lg-4">
+                                    订单编号：<span th:text="${order.orderNum}"></span>
+                                </div>
+                                <div class="col-lg-3">
+                                    下单时间：<span th:text="${order.orderTime}"></span>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div th:if="${order.orderStatus==0}">
+                                        支付方式：未支付
+                                    </div>
+                                    <div th:if="${order.orderStatus==1}">
+                                        <div th:if="${order.payType==1}">
+                                            支付方式：微信支付
+                                        </div>
+                                        <div th:if="${order.payType==2}">
+                                            支付方式：支付宝支付
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    下单账号：<span th:text="${order.userInfo.username}"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <h4>购买信息</h4>
+                                <hr>
+                                <div class="col-lg-3"><span th:text="${order.route.name}"></span></div>
+                                <div class="col-lg-2">成人<span th:text="${order.adult}"></span>人，儿童<span th:text="${order.child}"></span>人</div>
+                                <div class="col-lg-2">共<span th:text="${order.totalPrice}"></span>元</div>
+                                <div class="col-lg-2">出发时间：<span th:text="${order.reserveTime}"></span></div>
+                                <div class="col-lg-3">
+                                    <div th:if="${order.orderStatus==0}">
+                                        <button class="btn btn-default">取消订单</button>
+                                        <button class="btn btn-warning">立即支付</button>
+                                    </div>
+                                    <div th:if="${order.orderStatus==1}">
+                                        已支付
+                                    </div>
+                                    <div th:if="${order.orderStatus==2}">
+                                        已取消
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div th:if="${pageInfo.size>0}">
+                    <div class="row">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li>
+                                    <a th:href="'/travel/user/orders?page=1&size=5'">
+                                        <span aria-hidden="true">首页</span>
+                                    </a>
+                                </li>
+                                <li th:if="${pageInfo.pageNum>1}">
+                                    <a th:href="'/travel/user/orders?page='+${pageInfo.pageNum - 1}+'&size=5'" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li th:each="pageNumber:${#numbers.sequence(1,pageInfo.pages)}"><a th:href="'/travel/user/orders?page='+${pageNumber}+'&size=5'" th:text="${pageNumber}"></a></li>
+                                <li th:if="${pageInfo.pageNum<pageInfo.pages}">
+                                    <a th:href="'/travel/user/orders?page='+${pageInfo.pageNum+1}+'&size=5'" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a th:href="'/travel/user/orders?page='+${pageInfo.pages}+'&size=5'">
+                                        <span aria-hidden="true">尾页</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

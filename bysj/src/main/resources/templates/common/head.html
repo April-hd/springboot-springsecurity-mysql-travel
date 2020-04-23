@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+
+
+<!--顶部导航栏-->
+<!--页头-->
+<nav class="navbar navbar-inverse navbar-static-top" th:fragment="traveltop">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Travel</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav faq-tabbable">
+                <li><a href="/travel">首页 <span class="sr-only">(current)</span></a></li>
+                <li><a href="/travel/route/findAll">推荐路线</a></li>
+                <li><a href="/travel/freewalk/main">自由行</a></li>
+                <li><a href="/travel/destination/findAll">目的地</a></li>
+                <li><a href="/travel/scenery/findAll">景点</a></li>
+                <li><a href="/travel/food/findAll">美食</a></li>
+                <li><a href="/travel/cate/findAll">店铺</a></li>
+                <li><a href="/travel/hotel/main">订酒店</a></li>
+                <li><a href="#">帮助</a></li>
+            </ul>
+
+            <span th:if="${session.userInfo==null}">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a target="_self" href="/login" >登录</a></li>
+                    <li><a target="_self" href="/register" class="btn btn-default" style="padding: 6px 12px;margin-top: 8px;">注册</a></li>
+                </ul>
+            </span>
+            <span th:if="${session.userInfo!=null}">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" style="padding: 0;" ><img th:src="@{${session.userInfo.url}}" alt="" class="img-circle" data-toggle="modal" data-target="#myModal" style="width: 50px;height: 50px;padding: 5px;"/>
+                            <span class="caret" style="margin-top: 5px;"></span>
+                        </a>
+                        <ul class="dropdown-menu user-more">
+                            <li><a target="_self" href="/travel/user/homepage">我的主页</a></li>
+                            <li><a target="_self" href="/travel/user/orders?page=1&size=5">路线订单</a></li>
+                            <li><a target="_self" href="/travel/user/bookhotels?page=1&size=5">酒店订单</a></li>
+                            <li><a href="#">帮助与反馈</a></li>
+                            <li><a href="/logout">退出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </span>
+
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+
+<span th:if="${session.userInfo!=null}" th:fragment="userInfo">
+    <!--用户信息-->
+    <div class="modal fade" style="margin: 200px;" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabe">
+        <div class="modal-dialog" role="document" style="width: 666px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabe" style="text-align: center;">个人信息</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-4"><img th:src="@{${session.userInfo.url}}" class="img-thumbnail" style="width: 180px;height: 180px;" /></div>
+                            <div class="col-lg-8">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">用户名:</label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" name="username" th:value="${session.userInfo.username}"  placeholder="Username" readonly="readonly" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">电话号码:</label>
+                                        <div class="col-lg-9">
+                                            <input type="text" class="form-control" name="phoneNum" th:value="${session.userInfo.phoneNum}" placeholder="PhoneNum" readonly="readonly" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-lg-3 control-label">email:</label>
+                                        <div class="col-lg-9">
+                                            <input type="email" class="form-control" name="email" th:value="${session.userInfo.email}" placeholder="Email" readonly="readonly" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="/logout" class="btn btn-danger">退出</a>
+                </div>
+            </div>
+        </div>
+    </div> <!--用户信息结束-->
+</span>
+
+
+</html>

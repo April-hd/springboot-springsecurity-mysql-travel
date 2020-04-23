@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>丽江+香格里拉3日线路</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/moment.js/2.22.0/moment-with-locales.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="/js/head.js"></script>
+    <script src="/js/waterFall.js"></script>
+    <link type="text/css" rel="stylesheet" href="/css/travel.css">
+</head>
+<body>
+<!--导入公共头部-->
+<div th:replace="~{common/head::traveltop}"></div>
+<div th:replace="~{common/head::userInfo}"></div>
+
+<div class="route-002">
+    <div class="container">
+        <!-- 路线头部 -->
+        <div class="route-header">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-lg-12"><span>目的地>云南</span></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4"><h3 th:text="${route.name}"></h3></div>
+                        <div class="col-lg-3">
+                            <p>最佳季节：<span th:text="${route.season}"></span>月</p>
+                            <h4>价格：<span id="price" th:text="${route.price}"></span><small>元/人</small></h4>
+                        </div>
+                        <div class="col-lg-5">
+                            <input type="hidden" id="routeId" th:value="${route.id}">
+                        </div>
+                    </div>
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation"><a href="#profile">行程概况</a></li>
+                        <li role="presentation"><a href="#detail">行程详情</a></li>
+                        <li role="presentation"><a href="#forum">讨论区</a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+                    <!-- 行程概况 -->
+                    <div id="profile">
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="col-lg-12">
+                                    <h4>路线概览</h4>
+                                    <p>丽江->香格里拉</p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h4>Tips</h4>
+                                    <p>香格里拉景点相对分散，如果不是自驾，选择1-2日的纯玩团会相对轻松些，方便而且性价比高。</p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <h4>总结</h4>
+                                    <p>如果只有3天时间，1天在丽江古城闲逛，2天待在香格里拉，既不会过于劳顿又可以兼顾自然和人文风光。</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <img src="..." alt="..." class="img-rounded">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 路线下单 -->
+        <div class="route-order">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="alert alert-danger">
+                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                        <strong>警告！</strong><span>在下单之前，请先确认您的登录信息（刷新该网页）以及环境安全</span>
+                    </div>
+                    <div class="form-inline">
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div class="form-group">
+                                    <label>出发</label>
+                                    <div class="input-group date"  id="reserve">
+                                        <input type="text" class="form-control" name="reserveTime" id="reserveTime" placeholder="reserveTime"  />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>成人</label>
+                                    <select class="form-control" id="adult" role="button" data-toggle="popover" data-trigger="focus" data-placement="top" title="请注意：" data-content="成年人人数不能为0！">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>儿童</label>
+                                    <select class="form-control" id="child">
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                    </select>
+                                    <ins class="child-tip" data-toggle="tooltip" data-placement="bottom" title="2--12周岁（不含）不占床，含所选机票旅游车位，其余当地产生一切费用（如餐费、门票、小交通、体验费、住宿费等均自理，儿童/婴儿入住遵循酒店规则）">2-12周岁(不含12周岁)（半价）</ins>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group">
+                                    <label>总价：<span id="totalPrice">00</span>元</label>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-default" id="order">立即预定</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 路线详情 -->
+        <div class="route-body">
+            <div id="detail">
+                <body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+                <div class="row day-list">
+                    <div id="myScrollspy">
+                        <ul class="nav nav-pills nav-stacked" role="tablist" style="position: fixed;top: 40%;left: 80%;">
+                            <li><a href="#D1">D1</a></li>
+                            <li><a href="#D2">D2</a></li>
+                            <li><a href="#D3">D3</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-12">
+                        <div id="D1">
+                            <h3><span class="day-num">D1</span><span>丽江</span></h3>
+                            <hr>
+                            <p class="day-pio">今日主要游览丽江古城，漫步在古城小巷，尽情享受古城慵懒的氛围，还可以在街头巷尾寻觅各式丽江特色小吃来填补肚子。之后前往狮子山，登上狮子山的制高点—万古楼，俯瞰整个丽江古城，运气足够好的话向北可以远眺到玉龙雪山。下了狮子山顺路去木府，欣赏古城内这座仿紫禁城的纳西宫廷式建筑。傍晚回到古城，在四方街感受古城的夜生活，还可以去酒吧消遣一番， 说不定会碰上美好的艳遇。</p>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span><img src="../../images/地点.jpg"><span class="place-link"><a href="">丽江古城</a></span><span>（2小时）</span></span>
+                                    <span class="day-transport">步行20分钟<i class="i-arrow"></i></span>
+                                    <span><img src="../../images/地点.jpg"><span class="place-link"><a href="">忠义市场</a></span><span>（1小时）</span></span>
+                                    <span class="day-transport">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="i-arrow"></i></span>
+                                    <span><img src="../../images/地点.jpg"><span class="place-link"><a href="">狮子山</a></span><span>（1小时）</span></span>
+                                    <span class="day-transport">步行10分钟<i class="i-arrow"></i></span>
+                                    <span><img src="../../images/地点.jpg"><span class="place-link"><a href="">木府</a></span><span>（1小时）</span></span>
+                                    <span class="day-transport">步行15分钟<i class="i-arrow"></i></span>
+                                    <span><img src="../../images/地点.jpg"><span class="place-link"><a href="">丽江四方街</a></span><span>（3小时）</span></span>
+                                </li>
+                            </ul>
+                            <div class="row">
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="#" class="thumbnail">
+                                        <img src="../../images/route/route_002/D1_丽江古城.jpg" alt="...">
+                                    </a>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="#" class="thumbnail">
+                                        <img src="../../images/route/route_002/D1_忠义市场.jpg" alt="...">
+                                    </a>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="#" class="thumbnail">
+                                        <img src="../../images/route/route_002/D1_狮子山.jpg" alt="...">
+                                    </a>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="#" class="thumbnail">
+                                        <img src="../../images/route/route_002/D1_木府.jpg" alt="...">
+                                    </a>
+                                </div>
+                            </div>
+                            <h4><img src="../../images/交通.jpg" /><span style="margin-left: 20px;">交通攻略</span></h4>
+                            <hr>
+                            <p class="day-pio">丽江古城内步行即可到达各个景点。</p>
+                            <h4><img src="../../images/餐饮.jpg" /><span style="margin-left: 20px;">餐饮攻略</span></h4>
+                            <hr>
+                            <p class="day-pio">丽江最著名的美食是小吃和火锅，鸡豆凉粉、纳西烤鱼、粑粑和东巴烤肉是最受欢迎的小吃，火锅则以腊排骨火锅、洋芋鸡火锅、黑山羊火锅、菌类火锅和牦牛肉火锅为代表。今天一日三餐均可在古城内解决，小吃与火锅任意搭配组合，还可以去品尝一下丽江特色的三文鱼。</p>
+                            <h4><img src="../../images/住宿.jpg" /><span style="margin-left: 20px;">住宿攻略</span></h4>
+                            <hr>
+                            <p class="day-pio">四方街是古城最繁华的地方，周围食肆、酒吧、商铺林立，晚上更是热闹非，建议选择该区域入住。</p>
+                        </div>
+                        <div id="D2">
+                            <h3><span class="day-num">D2</span><span>丽江</span><span class="day-transport">大巴4小时<i class="i-arrow"></i></span><span>香格里拉</span></h3>
+                            <hr>
+                            <p class="day-pio">今日由丽江前往香格里拉，到达后先去参观噶丹·松赞林寺，之后到独宗克古城游玩龟山公园和月光广场。如果选择报纯玩团可以沿途游玩长江第一湾和虎跳峡，晚上到达香格里拉。</p>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span><img src="../../images/地点.jpg"><span class="place-link"><a href="">噶丹·松赞林寺</a></span><span>（1-2小时）</span></span>
+                                    <span class="day-transport">公交20分钟<i class="i-arrow"></i></span>
+                                    <span><img src="../../images/地点.jpg"><span class="place-link"><a href="">独克宗古城</a></span><span>（2-3小时）</span></span>
+                                    <span class="day-transport">步行15分钟<i class="i-arrow"></i></span>
+                                    <span><img src="../../images/地点.jpg"><span class="place-link"><a href="">香格里拉市独克宗古城-龟山公园</a></span><span>（1-2小时）</span></span>
+                                    <span class="day-transport">步行15分钟<i class="i-arrow"></i></span>
+                                    <span><img src="../../images/地点.jpg"><span class="place-link"><a href="">香格里拉县独克宗古城-月光广场</a></span><span>（1小时）</span></span>
+                                </li>
+                            </ul>
+                            <div class="row">
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="#" class="thumbnail">
+                                        <img src="../../images/route/route_002/D2_噶丹·松赞林寺.jpg" alt="...">
+                                    </a>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="#" class="thumbnail">
+                                        <img src="../../images/route/route_002/D2_独克宗古城.jpg" alt="...">
+                                    </a>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="#" class="thumbnail">
+                                        <img src="../../images/route/route_002/D2_香格里拉市独克宗古城-龟山公园.jpg" alt="...">
+                                    </a>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="#" class="thumbnail">
+                                        <img src="../../images/route/route_002/D2_香格里拉县独克宗古城-月光广场.jpg" alt="...">
+                                    </a>
+                                </div>
+                            </div>
+                            <h4><img src="../../images/交通.jpg" /><span style="margin-left: 20px;">交通攻略</span></h4>
+                            <hr>
+                            <p class="day-pio">丽江到香格里拉全程约187公里，丽江高快客运站每天有6班车，分别是8:20/9:30/10:30/13:00/14:30/15:30，票价63元/人，车程4小时；丽江客运站每天7:30—17:10每40分钟有一班车发往香格里拉，票价61-69元/人，车程4小时。如果想更加轻松方便的游玩，可以选择报一日游或两日游的团，古城中有很多纯玩团可以报。</p>
+                            <p class="day-pio">香格里拉县城内共有6条公交线路，运行时间为6:00—18:00，票价1元，乘坐3路公交可到达噶丹·松赞林寺；出租车起步7元，县城内一般不打表，到哪里基本都只要起步价，出城的话一般15元左右。</p>
+                            <h4><img src="../../images/餐饮.jpg" /><span style="margin-left: 20px;">餐饮攻略</span></h4>
+                            <hr>
+                            <p class="day-pio">香格里拉是藏族居住区，很多餐厅都是以藏餐为主，也有一些云南菜餐厅。特色菜有：牦牛肉、酥油茶、琵琶肉、米灌肠和苦茶炒面等。</p>
+                            <p class="day-pio">今日午饭，在到达香格里拉后，可以在县城找一家特色的民族餐厅解决；晚饭在香格里拉县城或独克宗古城解决均可，乘车过程中可以自备一些零食。</p>
+                            <h4><img src="../../images/住宿.jpg" /><span style="margin-left: 20px;">住宿攻略</span></h4>
+                            <hr>
+                            <p class="day-pio">晚上住在香格里拉独克宗古城区域，这里多为一些民居式客栈，价格比较便宜，住宿环境也好。</p>
+                        </div>
+                        <div id="D3">
+                            <h3><span class="day-num">D3</span>香格里拉</h3>
+                            <hr>
+                            <p class="day-pio">今日主要游玩普达措国家公园，这里原始生态环境保存完好，既有明镜般的高山湖泊、水美草丰的牧场，也有百花盛开的湿地和茂密的原始森林。</p>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <span><img src="../../images/地点.jpg"><span class="place-link"><a href="">苍山</a></span><span>（1天）</span></span>
+                                </li>
+                            </ul>
+                            <div class="row">
+                                <div class="col-xs-6 col-md-3">
+                                    <a href="#" class="thumbnail">
+                                        <img src="../../images/route/route_002/D3_普达措国家公园.jpg" alt="...">
+                                    </a>
+                                </div>
+                            </div>
+                            <h4><img src="../../images/交通.jpg" /><span style="margin-left: 20px;">交通攻略</span></h4>
+                            <hr>
+                            <p class="day-pio">香格里拉客运站每天有两班发往普达措国家公园，出发时间分别为8:30和9:30(旺季人多时会增加班次)，返程时间分别为14:00和15:00，车费单程15元/人，车程半小时左右。注意下车时询问清楚返回时间。</p>
+                            <p class="day-pio">也可以选择包车前往，价格约180元/天；打车单程80元左右、往返150元左右，但需注意去时最好和司机约定来接的时间，并留下司机电话，以免回程时打不到车。</p>
+                            <p class="day-pio">如果懒得自己找车，也可以选择一些包含门票、观光车和往返交通的一日游。</p>
+                            <h4><img src="../../images/餐饮.jpg" /><span style="margin-left: 20px;">餐饮攻略</span></h4>
+                            <hr>
+                            <p class="day-pio">今日午饭需自带干粮在普达措国家公园解决，晚饭回到独克宗古城解决。</p>
+                            <h4><img src="../../images/住宿.jpg" /><span style="margin-left: 20px;">住宿攻略</span></h4>
+                            <hr>
+                            <p class="day-pio">晚上返回继续返回香格里拉独克宗古城区域住宿，这里多为一些民居式客栈，价格比较便宜，住宿环境也好。</p>
+                        </div>
+                    </div>
+                </div>
+                </body>
+            </div>
+        </div>
+
+        <!-- 路线讨论区 -->
+        <div class="route-footer">
+            <h3 class="page-header" style="text-align: center;">讨论区</h3>
+            <div id="forum">
+                <div class="comment-form">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-1">
+                            <textarea class="form-control" id="comment-txt"></textarea>
+                        </div>
+                        <div class="col-lg-2">
+                            <button class="btn btn-warning" id="comment-submit">点击发布</button>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <ul class="comment-list list-unstyled">
+                    <li class="item" th:each="leaveWord:${pageInfo.list}">
+                        <div class="c-bar">
+                            <a href="#">
+                                <img th:src="@{${leaveWord.userInfo.url}}" class="img-circle" height="48" width="48" />
+                                <span class="c-user" th:text="'@'+${leaveWord.userInfo.username}"></span>
+                            </a>
+                            <span class="c-time" th:text="${leaveWord.createTime}"></span>
+                        </div>
+                        <div class="c-txt">
+                            <p th:text="${leaveWord.txt}"></p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="row">
+                    <div class="col-lg-6 col-lg-offset-6">
+                        <div class="list-inline">
+                            <a th:href="'/travel/route/002?routeId='+${route.id}+'&page=1&size='+${pageInfo.pageSize}+'#forum'">首页</a>
+                            <a th:if="${pageInfo.pageNum > 1}" th:href="'/travel/route/002?routeId='+${route.id}+'&page='+${pageInfo.pageNum - 1}+'&size='+${pageInfo.pageSize}+'#forum'">上一页</a>
+                            <a th:each="pageNumber:${#numbers.sequence(1,pageInfo.pages)}" th:href="'/travel/route/002?routeId='+${route.id}+'&page='+${pageNumber}+'&size='+${pageInfo.pageSize}+'#forum'" th:text="${pageNumber}"></a>
+                            <a th:if="${pageInfo.pageNum < pageInfo.pages}" th:href="'/travel/route/002?routeId='+${route.id}+'&page='+${pageInfo.pageNum+1}+'&size='+${pageInfo.pageSize}+'#forum'">下一页</a>
+                            <a th:href="'/travel/route/002?routeId='+${route.id}+'&page='+${pageInfo.pages}+'&size='+${pageInfo.pageSize}+'#forum'">尾页</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+<!--导入公共尾部-->
+<div th:replace="~{common/foot::travelfoot}"></div>
+</body>
+</html>
+<script src="/js/route_order.js"></script>
+<script src="/js/route_comment.js"></script>
